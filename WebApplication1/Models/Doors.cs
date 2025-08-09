@@ -8,6 +8,8 @@
         private int selectedDoor1;
         private int revealedDoor;
         private int selectedDoor2;
+        private bool switched;
+        private bool won;
 
 
         private Random random = new Random();
@@ -95,8 +97,61 @@
                 }
             }
             return;
+        }
 
+        public void SelectDoor2(int selected)
+        {
+            selectedDoor2 = selected;
+            if (selected == selectedDoor1)
+            {
+                switched = false;
+            }
+            else
+            {
+                switched = true;
+            }
+            won = false;
+            switch (selected)
+            {
+                case 0:
+                    if (door1)
+                    {
+                        won = true;
+                    }
+                    break;
+                case 1:
+                    if (door2)
+                    {
+                        won = true;
+                    }
+                    break;
+                case 2:
+                    if (door3)
+                    {
+                        won = true;
+                    }
+                    break;
+            }
+        }
 
+        public int GetFirstSelection()
+        {
+            return selectedDoor1;
+        }
+
+        public int GetRevealed()
+        {
+            return revealedDoor;
+        }
+
+        public bool GetVictory()
+        {
+            return won;
+        }
+
+        public bool GetSwitched()
+        {
+            return switched;
         }
 
     }

@@ -10,9 +10,18 @@ body {
 }
 
 main {
-    flex: 1;
+    flex: 1 0 auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* horizontální centrování */
+    /* align-items: center;  - zrušeno */
     text-align: center;
+    flex-direction: column;
+    padding: 1rem; /* trochu paddingu, aby to nebylo nalepené */
+}
+
+.text-justify-page {
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
 }

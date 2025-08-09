@@ -9,7 +9,23 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Doors doors = new Doors();
+            return View(doors);
+        }
+
+        [HttpPost]
+        public IActionResult Index(Doors doors, int selected, int round)
+        {
+            if (round == 0)
+            {
+                doors.SelectDoor1(selected);
+            }
+            else 
+            {
+                doors.SelectDoor2(selected);
+                
+            }
+            return View(doors);
         }
 
         public IActionResult Simulation()
